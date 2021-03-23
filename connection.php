@@ -1,9 +1,6 @@
 <?php
-
 function openDb()
 {
-    header("Access-Control-Allow-Origin: *");
-    header("Content-Type: application/json");
     $servername = "localhost";
     $username = "root";
     $password = "";
