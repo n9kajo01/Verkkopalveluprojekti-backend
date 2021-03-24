@@ -3,7 +3,7 @@ require_once "connection.php";
 require_once "headers.php";
 
 $db = openDb();
-$sql = "SELECT id,tuotenimi, hinta, tuotekuvaus FROM tuote";
+$sql = "SELECT id,tuotenimi, hinta, tuotekuvaus, kuva FROM tuote";
 $query = $db->query($sql);
 $query->execute();
 
