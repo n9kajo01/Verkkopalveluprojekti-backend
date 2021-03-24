@@ -11,7 +11,7 @@ $db = openDb();
 $input = json_decode(file_get_contents("php://input"));
 $search = filter_var($input->search, FILTER_SANITIZE_STRING);
 $sql = "
-SELECT tuotenimi, hinta, tuotekuvaus
+SELECT tuotenimi, hinta, tuotekuvaus,kuva
 FROM tuote
 INNER JOIN kategoria
 ON tuote.id = kategoria.id
