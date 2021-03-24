@@ -10,7 +10,7 @@ $db = openDb();
 
 $input = json_decode(file_get_contents("php://input"));
 $search = filter_var($input->search, FILTER_SANITIZE_STRING);
-$sql = "SELECT tuotenimi, hinta, tuotekuvaus FROM tuote WHERE tuotenimi like '%$search%' or tuotekuvaus like '%$search%'";
+$sql = "SELECT tuotenimi, hinta, tuotekuvaus,id,kuva FROM tuote WHERE tuotenimi like '%$search%' or tuotekuvaus like '%$search%'";
 
 
 $query = $db->prepare($sql);
