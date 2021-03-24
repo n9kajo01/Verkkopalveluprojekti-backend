@@ -15,7 +15,7 @@ SELECT tuotenimi, hinta, tuotekuvaus
 FROM tuote
 INNER JOIN kategoria
 ON tuote.id = kategoria.id
-WHERE kategoria = '$search'"
+WHERE kategoria LIKE '%$search%'"
 ;
 
 
