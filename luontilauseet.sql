@@ -16,9 +16,9 @@ pvm timestamp
 
 CREATE TABLE kategoria(
 id int,
-kategoria varchar(255),
-FOREIGN KEY (id) REFERENCES tuote(id)
-);
+kategoria varchar(255), 
+luokka varchar(255),
+FOREIGN KEY (id) REFERENCES tuote(id) );
 
 insert into tuote(tuotenimi, hinta, tuotekuvaus, kuva)
 values
@@ -30,11 +30,11 @@ values
 
 insert into kategoria()
 values
-(1, "Prosessorit"),
-(2, "Prosessorit"),
-(3, "Prosessorit"),
-(4, "Näytönohjaimet"),
-(5, "Kovalevyt")
+(1, "Prosessorit", "komponentit"),
+(2, "Prosessorit", "komponentit"),
+(3, "Prosessorit", "komponentit"),
+(4, "Näytönohjaimet", "komponentit"),
+(5, "Kovalevyt", "komponentit")
 
 
 
