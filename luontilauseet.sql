@@ -20,6 +20,12 @@ kategoria varchar(255),
 luokka varchar(255),
 FOREIGN KEY (id) REFERENCES tuote(id) );
 
+CREATE TABLE login(
+id int AUTO_INCREMENT PRIMARY KEY,
+username varchar(255),
+password decimal(255)
+);
+
 insert into tuote(tuotenimi, hinta, tuotekuvaus, kuva)
 values
 ('Intel-i7-6700K', 230, "Intel prosessori", "http://localhost/verkkokauppa/img/1.jpg"),
@@ -41,3 +47,4 @@ values
 (6, "Näppäimistöt", "oheislaitteet"),
 (7, "Näytöt", "oheislaitteet"),
 (8, "Hiiret", "oheislaitteet");
+
