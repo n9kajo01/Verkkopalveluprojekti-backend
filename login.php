@@ -20,7 +20,7 @@ try {
     $kysely->setFetchMode(PDO::FETCH_ASSOC);
 
     $result = $kysely->fetchAll();
-
+   
     foreach($result as $row){
         print($row['id']);
         print($row['username']);
