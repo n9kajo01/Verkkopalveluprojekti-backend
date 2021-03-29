@@ -1,21 +1,16 @@
 <?php
-
 require_once "headers.php";
 require_once "connection.php";
 
 
 $db = openDb();
 
-
-
 $input = json_decode(file_get_contents("php://input"));
 $search = filter_var($input->search, FILTER_SANITIZE_STRING);
 $sql = "
-SELECT *
+SELECT tuotenimi, hinta, tuotekuvaus,kuva,id
 FROM tuote
-INNER JOIN kategoria
-ON tuote.id = kategoria.id
-WHERE kategoria LIKE '%$search%'"
+WHERE id= '$search'"
 ;
 
 

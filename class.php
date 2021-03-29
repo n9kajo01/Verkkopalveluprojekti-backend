@@ -15,7 +15,7 @@ SELECT *
 FROM tuote
 INNER JOIN kategoria
 ON tuote.id = kategoria.id
-WHERE kategoria LIKE '%$search%'"
+WHERE luokka LIKE '%$search%'"
 ;
 
 
