@@ -9,7 +9,6 @@ try {
     $input = json_decode(file_get_contents("php://input"));
     $username = filter_var($input->username, FILTER_SANITIZE_STRING);
     $password = filter_var($input->password, FILTER_SANITIZE_STRING);
-    
 
 
     $kysely = $db->prepare("SELECT * FROM login WHERE username ='$username' AND password = '$password'");
@@ -25,10 +24,14 @@ try {
         print($row['id']);
         print($row['username']);
         print($row['password']);
-        echo json_encode($result);
+        $data = array($row['id'] => "id","username" => $username, "password" => $password);
+        echo json_encode($data);
+        
     }
+
 } catch (PDOException $pdoex) {
-    print "Tallennuksessa tapahtui virhe". $pdoex->getMessage();
+    $error = array("error" => $pdoex->getMessage());
+    echo json_encode($error);
 }
 
 ?>
