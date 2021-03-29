@@ -14,6 +14,7 @@ try {
     $kuva = filter_var($input->kuva, FILTER_SANITIZE_STRING);
     $kategoria = filter_var($input->kategoria, FILTER_SANITIZE_STRING);
     $luokka = filter_var($input->luokka, FILTER_SANITIZE_STRING);
+    $id = filter_var($input->id, FILTER_SANITIZE_NUMBER_INT);
     
 
 
@@ -25,7 +26,7 @@ try {
      $kysely->bindValue(":tuotekuvaus", $tuotekuvaus, PDO::PARAM_STR);
     $kysely->bindValue(":kuva", $kuva, PDO::PARAM_STR); 
     $kysely->execute();
-    
+
     $kysely2 = $db->prepare("INSERT INTO kategoria (kategoria, luokka)"
     . "VALUES (:kategoria, :luokka)");
     $kysely2->bindValue(":kategoria", $kategoria, PDO::PARAM_STR);

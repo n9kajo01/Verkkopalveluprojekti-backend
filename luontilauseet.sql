@@ -15,7 +15,7 @@ pvm timestamp
 );
 
 CREATE TABLE kategoria(
-id int,
+id int AUTO_INCREMENT,
 kategoria varchar(255), 
 luokka varchar(255),
 FOREIGN KEY (id) REFERENCES tuote(id) );
@@ -23,7 +23,7 @@ FOREIGN KEY (id) REFERENCES tuote(id) );
 CREATE TABLE login(
 id int AUTO_INCREMENT PRIMARY KEY,
 username varchar(255),
-password decimal(255)
+password varchar(255)
 );
 
 insert into tuote(tuotenimi, hinta, tuotekuvaus, kuva)

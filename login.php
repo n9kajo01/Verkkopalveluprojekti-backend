@@ -20,11 +20,12 @@ try {
     $kysely->setFetchMode(PDO::FETCH_ASSOC);
 
     $result = $kysely->fetchAll();
-   
+
     foreach($result as $row){
         print($row['id']);
         print($row['username']);
-
+        print($row['password']);
+        echo json_encode($result);
     }
 } catch (PDOException $pdoex) {
     print "Tallennuksessa tapahtui virhe". $pdoex->getMessage();
