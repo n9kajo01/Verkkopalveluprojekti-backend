@@ -9,7 +9,6 @@ try {
     $input = json_decode(file_get_contents("php://input"));
     $username = filter_var($input->username, FILTER_SANITIZE_STRING);
     $password = filter_var($input->password, FILTER_SANITIZE_STRING);
-    $pass = password_hash($password, PASSWORD_DEFAULT);
 
     $kysely = $db->prepare("SELECT * FROM login WHERE username ='$username'");
     $kysely->bindValue(":username", $username, PDO::PARAM_STR);
@@ -18,10 +17,12 @@ try {
     $kysely->setFetchMode(PDO::FETCH_ASSOC);
 
     $result = $kysely->fetchAll();
-    
+
     foreach($result as $row){
-        $data = array( "id" => $row['id'],"username" => $username, "password" => $pass);
+        if(password_verify($password, $row['password'])){
+        $data = array( "id" => $row['id'],"username" => $username);
         echo json_encode($data);
+        }
         
     }
 
