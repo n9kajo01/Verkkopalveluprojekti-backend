@@ -23,7 +23,8 @@ FOREIGN KEY (id) REFERENCES tuote(id) );
 CREATE TABLE login(
 id int AUTO_INCREMENT PRIMARY KEY,
 username varchar(255),
-password varchar(255)
+password varchar(255),
+oikeudet varchar(20)
 );
 
 insert into tuote(tuotenimi, hinta, tuotekuvaus, kuva)

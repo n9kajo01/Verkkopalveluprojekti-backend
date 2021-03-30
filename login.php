@@ -20,7 +20,7 @@ try {
 
     foreach($result as $row){
         if(password_verify($password, $row['password'])){
-        $data = array( "id" => $row['id'],"username" => $username);
+        $data = array( "id" => $row['id'],"username" => $username, "oikeudet" => $row['oikeudet']);
         echo json_encode($data);
         }
         
