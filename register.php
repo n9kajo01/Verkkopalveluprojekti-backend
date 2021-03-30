@@ -9,13 +9,13 @@ try {
     $input = json_decode(file_get_contents("php://input"));
     $username = filter_var($input->username, FILTER_SANITIZE_STRING);
     $password = filter_var($input->password, FILTER_SANITIZE_STRING);
-    
+    $pass = password_hash($password, PASSWORD_DEFAULT);
 
 
     $kysely = $db->prepare("INSERT INTO login (username,password)"
-    . "VALUES (:username, :password)");
+    . "VALUES (:username, :pass)");
     $kysely->bindValue(":username", $username, PDO::PARAM_STR);
-    $kysely->bindValue(":password", $password, PDO::PARAM_STR);
+    $kysely->bindValue(":pass", $pass, PDO::PARAM_STR);
     $kysely->execute();
     
    
