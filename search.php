@@ -10,12 +10,12 @@ $db = openDb();
 
 $input = json_decode(file_get_contents("php://input"));
 $search = filter_var($input->search, FILTER_SANITIZE_STRING);
-$sql = "SELECT tuotenimi, hinta, tuotekuvaus,id,kuva FROM tuote WHERE tuotenimi like '%$search%' or tuotekuvaus like '%$search%'";
+$sort = filter_var($input->sort, FILTER_SANITIZE_STRING);
 
+$sql = $db->prepare("SELECT tuotenimi, hinta, tuotekuvaus,id,kuva FROM tuote WHERE tuotenimi like '%$search%' or tuotekuvaus like '%$search%' $sort");
 
-$query = $db->prepare($sql);
-$query->execute();
+$sql->execute();
 
-$result = $query->fetchAll(PDO::FETCH_ASSOC);
+$result = $sql->fetchAll(PDO::FETCH_ASSOC);
 echo header("HTTP/1.1 200 OK");
 echo json_encode($result);

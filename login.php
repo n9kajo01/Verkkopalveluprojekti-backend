@@ -10,7 +10,7 @@ try {
     $username = filter_var($input->username, FILTER_SANITIZE_STRING);
     $password = filter_var($input->password, FILTER_SANITIZE_STRING);
 
-    $kysely = $db->prepare("SELECT * FROM login WHERE username ='$username'");
+    $kysely = $db->prepare("SELECT * FROM login WHERE username =:username");
     $kysely->bindValue(":username", $username, PDO::PARAM_STR);
     $kysely->execute();
     
