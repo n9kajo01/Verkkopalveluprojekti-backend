@@ -12,7 +12,7 @@ $input = json_decode(file_get_contents("php://input"));
 $search = filter_var($input->search, FILTER_SANITIZE_STRING);
 $sort = filter_var($input->sort, FILTER_SANITIZE_STRING);
 
-$sql = $db->prepare("SELECT tuotenimi, hinta, tuotekuvaus,id,kuva FROM tuote WHERE tuotenimi like '%$search%' or tuotekuvaus like '%$search%' $sort");
+$sql = $db->prepare("SELECT tuotenimi, hinta, tuotetiivistelmä,tuotekuvaus,id,kuva FROM tuote WHERE tuotenimi like '%$search%' or tuotekuvaus like '%$search%' $sort");
 
 $sql->execute();
 
