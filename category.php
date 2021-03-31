@@ -10,12 +10,14 @@ $db = openDb();
 
 $input = json_decode(file_get_contents("php://input"));
 $search = filter_var($input->search, FILTER_SANITIZE_STRING);
+$sort = filter_var($input->sort, FILTER_SANITIZE_STRING);
+
 $sql = "
 SELECT *
 FROM tuote
 INNER JOIN kategoria
 ON tuote.id = kategoria.id
-WHERE kategoria LIKE '%$search%'"
+WHERE kategoria LIKE '%$search%' $sort"
 ;
 
 
