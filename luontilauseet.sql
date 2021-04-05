@@ -14,6 +14,15 @@ kuva varchar(255),
 pvm timestamp
 );
 
+CREATE TABLE kommentit(
+id int AUTO_INCREMENT PRIMARY KEY,
+tuoteid int,
+otsikko varchar(255), 
+kommentti varchar(255),
+arvosana int,
+käyttäjä varchar(255),
+FOREIGN KEY (tuoteid) REFERENCES tuote(id) );
+
 CREATE TABLE kategoria(
 id int AUTO_INCREMENT,
 kategoria varchar(255), 
