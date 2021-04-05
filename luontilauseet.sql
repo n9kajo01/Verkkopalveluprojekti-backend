@@ -19,7 +19,7 @@ id int AUTO_INCREMENT PRIMARY KEY,
 tuoteid int,
 otsikko varchar(255), 
 kommentti varchar(255),
-arvosana int,
+arvosana decimal(10,2),
 käyttäjä varchar(255),
 FOREIGN KEY (tuoteid) REFERENCES tuote(id) );
 
