@@ -6,9 +6,11 @@ require_once "connection.php";
 $db = openDb();
 
 $input = json_decode(file_get_contents("php://input"));
+$search = filter_var($input->search, FILTER_SANITIZE_STRING);
 $sql = "
 SELECT AVG(arvosana) as keskiarvo
-from kommentit"
+from kommentit
+where tuoteid = '$search'"
 ;
 
 
