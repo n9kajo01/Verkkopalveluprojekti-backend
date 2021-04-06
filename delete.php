@@ -13,9 +13,15 @@ try {
     $query->bindValue(":id", $id, PDO::PARAM_INT);
     $query->execute();
 
+    $query3 = $db->prepare("delete from kommentit where tuoteid=:id");
+    $query3->bindValue(":id", $id, PDO::PARAM_INT);
+    $query3->execute();
+
     $query2 = $db->prepare("delete from tuote where id=:id");
     $query2->bindValue(":id", $id, PDO::PARAM_INT);
     $query2->execute();
+
+    
 
 }
 
