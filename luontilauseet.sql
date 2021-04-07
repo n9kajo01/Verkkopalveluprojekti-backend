@@ -36,6 +36,27 @@ password varchar(255),
 oikeudet varchar(20)
 );
 
+CREATE TABLE tilaus(
+    id int AUTO_INCREMENT PRIMARY KEY,
+    nimi varchar(255),
+    puhelin varchar(255),
+    osoite varchar(255),
+    postinro varchar(255),
+    sähköposti varchar(255),
+    toimitustapa varchar(255),
+    maksutapa varchar(255),
+    pvm timestamp
+);
+
+CREATE TABLE tilausrivi(
+    tilausid int not null,
+    rivinro int not null AUTO_INCREMENT,
+    tuotenro int,
+    kpl int,
+    PRIMARY KEY (rivinro,tilausid)
+ 
+);
+
 insert into tuote(tuotenimi, hinta,tuotetiivistelmä, tuotekuvaus, kuva)
 values
 ('Intel Core i7-10700K', 360, "Intelin LGA1200 -kantaan suunniteltu suoritin Comet Lake -arkkitehtuurilla.", "Intelin LGA1200 -kantaan suunniteltu suoritin Comet Lake -arkkitehtuurilla", "http://localhost/verkkokauppa/img/1.jpg"),
