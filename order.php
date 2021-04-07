@@ -14,8 +14,6 @@ try {
     $sahkoposti = filter_var($input->sahkoposti, FILTER_SANITIZE_STRING);
     $kuljetus = filter_var($input->kuljetus, FILTER_SANITIZE_STRING);
     $maksu = filter_var($input->maksu, FILTER_SANITIZE_STRING);
-    $tuotenro = filter_var($input->tuotenro, FILTER_SANITIZE_STRING);
-    $kpl = filter_var($input->kpl, FILTER_SANITIZE_STRING);
 
 
     $db->beginTransaction();
@@ -32,17 +30,10 @@ try {
     $kysely->execute();
     $id = $db->lastInsertId();
 
-    $kysely2 = $db->prepare("INSERT INTO tilausrivi (tilausid, tuotenro, kpl)"
-    . "VALUES (:id, :tuotenro, :kpl)");
-    $kysely2->bindValue(":id", $id, PDO::PARAM_STR);
-    $kysely2->bindValue(":tuotenro", $tuotenro, PDO::PARAM_STR);
-    $kysely2->bindValue(":kpl", $kpl, PDO::PARAM_STR);
-    $kysely2->execute();
-
     $db->commit();
 
-
-    print "<p>Tuote tallennettu!</p>";
+    
+    print "$id";
 
 } catch (PDOException $pdoex) {
     $db->rollback();
