@@ -12,7 +12,7 @@ $input = json_decode(file_get_contents("php://input"));
 $search = filter_var_array($input->search, FILTER_SANITIZE_STRING);
 
 $arr = implode(" ,", $search);
-$sql = "SELECT tuotenimi, hinta, tuotekuvaus,id,kuva FROM tuote WHERE id IN ($arr)";
+$sql = "SELECT tuotenimi, hinta, alennettuhinta, tuotekuvaus,id,kuva FROM tuote WHERE id IN ($arr)";
 
 $query = $db->prepare($sql);
 $query->execute();

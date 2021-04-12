@@ -46,6 +46,7 @@ CREATE TABLE tilaus(
     sähköposti varchar(255),
     toimitustapa varchar(255),
     maksutapa varchar(255),
+    hinta varchar(255),
     pvm timestamp
 );
 
