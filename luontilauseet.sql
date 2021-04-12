@@ -59,6 +59,16 @@ CREATE TABLE tilausrivi(
  
 );
 
+CREATE TABLE kysymys(
+    id int AUTO_INCREMENT PRIMARY KEY,
+    tuoteid int,
+    nimi varchar(255),
+    puhelin varchar(255),
+    sähköposti varchar(255),
+    aihe varchar(255),
+    viesti varchar(255),
+    FOREIGN KEY (tuoteid) REFERENCES tuote(id) );
+
 insert into tuote(tuotenimi, hinta, alennettuhinta,tuotetiivistelmä, tuotekuvaus, kuva)
 values
 ('Intel Core i7-10700K', 360, 200, "Intelin LGA1200 -kantaan suunniteltu suoritin Comet Lake -arkkitehtuurilla.", "Intelin LGA1200 -kantaan suunniteltu suoritin Comet Lake -arkkitehtuurilla", "http://localhost/verkkokauppa/img/1.jpg"),
