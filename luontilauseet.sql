@@ -34,7 +34,8 @@ CREATE TABLE login(
 id int AUTO_INCREMENT PRIMARY KEY,
 username varchar(255),
 password varchar(255),
-oikeudet varchar(20)
+oikeudet varchar(20),
+added timestamp
 );
 
 CREATE TABLE tilaus(
@@ -47,6 +48,7 @@ CREATE TABLE tilaus(
     toimitustapa varchar(255),
     maksutapa varchar(255),
     hinta varchar(255),
+    käyttäjänimi varchar(255),
     pvm timestamp
 );
 
