@@ -38,6 +38,16 @@ oikeudet varchar(20),
 added timestamp
 );
 
+CREATE TABLE palaute(
+id int AUTO_INCREMENT PRIMARY KEY,
+nimi varchar(255), 
+otsikko varchar(50), 
+viesti text,
+puhelin varchar(20),
+sposti varchar(255),
+pvm timestamp
+);
+
 CREATE TABLE tilaus(
     id int AUTO_INCREMENT PRIMARY KEY,
     nimi varchar(255),
