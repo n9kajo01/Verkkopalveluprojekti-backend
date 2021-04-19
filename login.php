@@ -3,34 +3,40 @@
 require_once "headers.php";
 require_once "connection.php";
 
-$db = openDb();
+
+$username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
+$password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+
+// $username = "testi";
+// $password = "testi";
+
+$sql = "SELECT * FROM login WHERE username='$username'";
 
 try {
-    $input = json_decode(file_get_contents("php://input"));
-    $username = filter_var($input->username, FILTER_SANITIZE_STRING);
-    $password = filter_var($input->password, FILTER_SANITIZE_STRING);
+    $db = openDb();
+    $query = $db->query($sql);
+    $user = $query->fetch(PDO::FETCH_OBJ);
 
-    $kysely = $db->prepare("SELECT * FROM login WHERE username =:username");
-    $kysely->bindValue(":username", $username, PDO::PARAM_STR);
-    $kysely->execute();
-    
-    $kysely->setFetchMode(PDO::FETCH_ASSOC);
-
-    $result = $kysely->fetchAll();
-
-    foreach($result as $row){
-        if(password_verify($password, $row['password'])){
-        $data = array( "id" => $row['id'],"username" => $username, "oikeudet" => $row['oikeudet'], "added" => $row['added']);
-        echo json_encode($data);
+    if ($user) {
+        $passwordFromDb = $user->password;
+        if (password_verify($password, $passwordFromDb)) {
+            $data = array(
+                "id" => $user->id,
+                "username" => $user->username,
+                "oikeudet" => $user->oikeudet
+            );
+            $_SESSION["user"] = $user;
+        } else {
+            header('HTTP/1.1 401 Unauthorized');
+            $data = array('message' => "Unsuccessfull login.");
         }
-        
+    } else {
+        header('HTTP/1.1 401 Unauthorized');
+        $data = array('message' => "Unsuccessfull login.");
     }
+    echo json_encode($data);
 
 } catch (PDOException $pdoex) {
     $error = array("error" => $pdoex->getMessage());
     echo json_encode($error);
 }
-
-?>
-
-
