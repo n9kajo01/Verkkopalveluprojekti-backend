@@ -20,6 +20,7 @@ try {
     if ($user) {
         $passwordFromDb = $user->password;
         if (password_verify($password, $passwordFromDb)) {
+            header('HTTP/1.1 200 OK');
             $data = array(
                 "id" => $user->id,
                 "username" => $user->username,
