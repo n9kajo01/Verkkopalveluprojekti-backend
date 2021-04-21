@@ -7,8 +7,8 @@ require_once "connection.php";
 $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
 $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 
-// $username = "testi";
-// $password = "testi";
+// $username = "";
+// $password = "";
 
 $sql = "SELECT * FROM login WHERE username='$username'";
 
