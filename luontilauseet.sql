@@ -95,7 +95,11 @@ AMD Ryzen 5000 -sarja tarjoaa PCIe 4.0 -tuen, mikä mahdollistaa myös tulevien 
 ("Asus Prime B550-Plus AM4", 152,null ,"Asus Prime B550-Plus AMD B550 -piirisarjalla varustettu AM4-kantainen emolevy", "Asus Prime B550-Plus on AMD B550 -piirisarjalla varustettu AM4-kantainen emolevy 3. sukupolven AMD Ryzen prosessoreille. Emolevy tukee myös BIOS-päivityksellä tulevan sukupolven AMD Ryzen prosessoreita. B550 piirisarjan PCIe 4.0 -tuki tarjoaa tarvittavan kaistan huippunopeille SSD-levyille ja seuraavan sukupolven näytönohjaimille!", "http://localhost/verkkokauppa/img/9.jpeg"),
 ("Asus VG248QE 24' Full HD -näyttö", 220,null ,"ASUS VG248QE - Full HD 1920x1080-resoluution 24' näyttö", "ASUS VG248QE on jokaisen PC-pelaajan unelmamonitori - Full HD 1920x1080-resoluution 24' näyttö on varustettu tyrmäävällä 144Hz virkistystaajuudella ja 1ms vasteajalla, joiden ansiosta pelikuva ei repeile intensiivisimmissäkään pelitilanteissa. Näyttö tukee myös nVidian 3D-tekniikkaa. Näyttö on varustettu viimeisimmillä liitännöillä, kuten DisplayPort, Dual-link DVI ja HDMI-porteilla.", "http://localhost/verkkokauppa/img/10.png"),
 ("Kolink Observatory Lite Mesh RGB", 57,null ,"Kolink Observatory Lite Mesh RGB, ikkunallinen miditornikotelo, musta", "Kolink Observatory Lite Mesh on hinta-laatusuhteeltaan erinomainen miditorni, jossa on monipuolisia ominaisuuksia juuri oikeassa suhteessa. Observatory Lite Mesh on myös näyttävä: kotelossa on 4 esiasennettua 120 mm ARGB LED -tuuletinta joissa monta erilaista valaisu- ja värivalovaihtoehtoa joita voidaan säätää sisältyvän kaukosäätimen avulla. Myös pyörimisnopeus on säädettävissä, ja tuulettimet yhdistettynä verkkomateriaalista valmistettuun etupaneeliin pitävät sisustan viileänä", "http://localhost/verkkokauppa/img/11.jpg"),
-("PowerColor Radeon RX 6700 XT Red Devil", 900,null ,"AMD:n uutta näytönohjain sarjaa, kahdentoista Gigan muistilla.", "AMD Radeon RX 6700 XT näytönohjain, jota vauhdittaa AMD RDNA 2 arkkitehtuuri, 40 tehokasta laskentayksikköä, 96 Mt AMD Infinity Cache ja 12 Gt GDDR6 -muistia. AMD Radeon RX 6700 XT -sarja tuo pelikoneeseesi kaiken mitä tarvitset uuden sukupolven huippupelien pelaamiseen tarjoamalla runsaasti suorituskykyä, uskomattomat tehosteet ja pelifysiikan, sekä uusimmat ominaisuudet.", "http://localhost/verkkokauppa/img/12.png");
+("PowerColor Radeon RX 6700 XT Red Devil", 900,null ,"AMD:n uutta näytönohjain sarjaa, kahdentoista Gigan muistilla.", "AMD Radeon RX 6700 XT näytönohjain, jota vauhdittaa AMD RDNA 2 arkkitehtuuri, 40 tehokasta laskentayksikköä, 96 Mt AMD Infinity Cache ja 12 Gt GDDR6 -muistia. AMD Radeon RX 6700 XT -sarja tuo pelikoneeseesi kaiken mitä tarvitset uuden sukupolven huippupelien pelaamiseen tarjoamalla runsaasti suorituskykyä, uskomattomat tehosteet ja pelifysiikan, sekä uusimmat ominaisuudet.", "http://localhost/verkkokauppa/img/12.png"),
+("Kingston 1TB A2000 NVMe PCIe SSD-levy", 129,null ,"Kingstonin A2000 NVMe PCIe SSD on edullinen ja hämmästyttävän tehokas tallennusratkaisu.", "A2000 SSD on suunniteltu aloittelijatason käyttäjille, tarkoituksen mukaan kehitettävien järjestelmien valmistajille, tee-se-itse-kokoonpanojen tekijöille ja tietokonettaan päivittäville. A2000, joka on rakenteeltaan toispuolinen ja ohut, tarjoaa käyttöön täyden potentiaalinsa, kun se asennetaan Ultrabook-tietokoneisiin tai pienikokoisiin tietokonejärjestelmiin (SFF PC).", "http://localhost/verkkokauppa/img/13.jpg"),
+("Noctua NH-U12S -prosessorituuletin", 69,null ,"Klassikkotuuletin nyt mustana!", "Erittäin hiljaisista ja laadukkaista jäähdytysratkaisuistaan tunnettu Itävaltalainen Noctua on tuonut markkinoille uudistetun version alanlehdissä paljon kiitosta saaneesta NH-U12 -prosessorijäähdyttimestä. Erikoisversio ahtaisiin koteloihin.", "http://localhost/verkkokauppa/img/14.jpeg"),
+("Noctua NH-D15S -prosessorituuletin", 89,null ,"Palkittu kestosuosikki sai chromax.black käsittelyn ja vetoaa taatusti entistä laajempaan yleisöön!", "NH-D15S yhdistää massiivisen kuuden heatpipen lämmönsiirron kahteen jäähdytysritilään, joita jäähdyttää yksi erittäin hiljainen Noctua-tuuletin.", "http://localhost/verkkokauppa/img/15.jpg"),
+("Dell DW316 -ulkoinen DVD asema", 50,null ,"Dellin 200g painava ratkaisu ulkoiselle DVD asemalle!", "Puuttuuko kannettavastasi DVD asema? Ei hätää! Dell on keksinyt ratkaisun vain 200g  painavan ulkoisen DVD aseman muodossa. Tietokoneen pitäisi tunnistaa DVD asema heti ilman sen suurempia asennuksia. DW316 omaa aivan erinomaisen designin, joka sopii hyvin kotisi työtilaan tai high tech kahvilaan.", "http://localhost/verkkokauppa/img/16.jpg");
 
 insert into kategoria()
 values
@@ -110,6 +114,11 @@ values
 (9, "Emolevyt", "komponentit"),
 (10, "Näytöt", "oheislaitteet"),
 (11, "Kotelot", "komponentit"),
-(12, "Näytönohjaimet", "komponentit");
+(12, "Näytönohjaimet", "komponentit"),
+(13, "Muistit", "komponentit"),
+(14, "Jäähdytys", "komponentit"),
+(15, "Jäähdytys", "komponentit"),
+(16, "Asemat", "komponentit");
+
 
 
