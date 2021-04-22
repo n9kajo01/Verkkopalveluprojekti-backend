@@ -21,7 +21,7 @@ try {
     $db->beginTransaction();
 
     $kysely = $db->prepare("INSERT INTO tilaus (nimi, puhelin, osoite, postinro, sähköposti, toimitustapa, maksutapa, hinta, käyttäjänimi)"
-    . "VALUES (:nimi, :puhelin, :osoite, :posti, :sahkoposti, :kuljetus, :maksu, :hinta, :kayttajanimi)");
+    . "VALUES (:nimi, :puhelin, :osoite, :posti, :sahkoposti, :kuljetus, :maksu, :hinta, :sahkoposti)");
     $kysely->bindValue(":nimi", $nimi, PDO::PARAM_STR);
     $kysely->bindValue(":puhelin", $puhelin, PDO::PARAM_STR);
    $kysely->bindValue(":osoite", $osoite, PDO::PARAM_STR);
