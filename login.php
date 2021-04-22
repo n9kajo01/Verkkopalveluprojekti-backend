@@ -24,6 +24,13 @@ try {
             $data = array(
                 "userid" => $user->userid,
                 "email" => $user->email,
+                "etunimi" => $user->etunimi,
+                "sukunimi" => $user->sukunimi,
+                "osoite" => $user->osoite,
+                "postinro" => $user->postinro,
+                "kunta" => $user->kunta,
+                "puh" => $user->puh,
+                "added" => $user->added,
                 "oikeudet" => $user->oikeudet
             );
             $_SESSION["user"] = $user;
