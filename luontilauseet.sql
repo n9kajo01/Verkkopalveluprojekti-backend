@@ -31,11 +31,18 @@ luokka varchar(255),
 FOREIGN KEY (id) REFERENCES tuote(id) );
 
 CREATE TABLE login(
-id int AUTO_INCREMENT PRIMARY KEY,
-username varchar(255),
-password varchar(255),
+userid int AUTO_INCREMENT PRIMARY KEY,
+email varchar(255) NOT NULL,
+password varchar(255) NOT NULL,
+etunimi varchar(255) NOT NULL,
+sukunimi varchar(255) NOT NULL,
+osoite varchar(255),
+postinro varchar(5),
+kunta varchar(255),
+puh varchar(15),
 oikeudet varchar(20),
-added timestamp
+added timestamp,
+UNIQUE(email)
 );
 
 CREATE TABLE palaute(

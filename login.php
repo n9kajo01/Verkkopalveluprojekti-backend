@@ -4,13 +4,13 @@ require_once "headers.php";
 require_once "connection.php";
 
 
-$username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
+$username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_EMAIL);
 $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 
 // $username = "";
 // $password = "";
 
-$sql = "SELECT * FROM login WHERE username='$username'";
+$sql = "SELECT * FROM login WHERE email='$username'";
 
 try {
     $db = openDb();
@@ -22,8 +22,8 @@ try {
         if (password_verify($password, $passwordFromDb)) {
             header('HTTP/1.1 200 OK');
             $data = array(
-                "id" => $user->id,
-                "username" => $user->username,
+                "userid" => $user->userid,
+                "email" => $user->email,
                 "oikeudet" => $user->oikeudet
             );
             $_SESSION["user"] = $user;
