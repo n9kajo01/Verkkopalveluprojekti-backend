@@ -12,6 +12,7 @@ $postinro = filter_var($input->postinro, FILTER_SANITIZE_NUMBER_INT);
 $kunta = filter_var($input->kunta, FILTER_SANITIZE_STRING);
 $puh = filter_var($input->puh, FILTER_SANITIZE_NUMBER_INT);
 $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+//$email = "posti@postifi";
 
 try {
     $db = openDb();
@@ -20,19 +21,22 @@ try {
     VALUES('$email', '$passwordHash', '$etunimi', '$sukunimi', '$osoite', '$postinro', '$kunta', '$puh')";
 
     //testaa onko sähköposti jo olemassa login taulussa
-    $query = $db->prepare("SELECT email FROM login where email='$email'");
-    $query->execute();
-    $result = $query->fetchAll(PDO::FETCH_ASSOC);
-    if ($result) {
-        $data = array('message' => "fail");
-    } else { //jos ei sähköpostia ei löydy taulusta, tehdään uusi
-        $query = $db->prepare($sql);
+    if ($email) {
+        $query = $db->prepare("SELECT email FROM login where email='$email'");
         $query->execute();
         $result = $query->fetchAll(PDO::FETCH_ASSOC);
-        $data = array('message' => "success");
+
+        if ($result) {
+            $data = array('message' => "fail");
+        } else { //jos ei sähköpostia ei löydy taulusta, tehdään uusi
+            $query = $db->prepare($sql);
+            $query->execute();
+            $result = $query->fetchAll(PDO::FETCH_ASSOC);
+            $data = array('message' => "success");
+        }
+        echo header("HTTP/1.1 200 OK");
+        echo json_encode($data);
     }
-    echo header("HTTP/1.1 200 OK");
-    echo json_encode($data);
 } catch (PDOException $pdoex) {
     print "Tallennuksessa tapahtui virhe" . $pdoex->getMessage();
 }

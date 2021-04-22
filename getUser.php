@@ -3,7 +3,7 @@ session_start();
 require_once "headers.php";
 
 //palauttaa kirjautuneen käyttäjän tiedot jos sivu ladataan uudestaan
-if($_SESSION["user"]){
+if(isset($_SESSION['user'])){
     $user = (array)$_SESSION["user"];
     $data = array(
         "userid" => $user["userid"],
