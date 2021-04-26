@@ -9,6 +9,7 @@ try {
     $input = json_decode(file_get_contents("php://input"));
     $tuotenimi = filter_var($input->tuotenimi, FILTER_SANITIZE_STRING);
     $hinta = filter_var($input->hinta, FILTER_SANITIZE_STRING);
+    $alennettuhinta = filter_var($input->alennettuhinta, FILTER_SANITIZE_STRING);
     $tuotetiivistelma = filter_var($input->tuotetiivistelma, FILTER_SANITIZE_STRING);
     $tuotekuvaus = filter_var($input->tuotekuvaus, FILTER_SANITIZE_STRING);
     $kuva = filter_var($input->kuva, FILTER_SANITIZE_STRING);
@@ -16,9 +17,10 @@ try {
     $kategoria = filter_var($input->kategoria, FILTER_SANITIZE_STRING);
     $luokka = filter_var($input->luokka, FILTER_SANITIZE_STRING);
 
-    $query = $db->prepare("UPDATE tuote SET tuotenimi = :tuotenimi, hinta = :hinta, tuotetiivistelmä = :tuotetiivistelma, tuotekuvaus = :tuotekuvaus, kuva = :kuva WHERE id = :id");
+    $query = $db->prepare("UPDATE tuote SET tuotenimi = :tuotenimi, hinta = :hinta,alennettuhinta = :alennettuhinta,  tuotetiivistelmä = :tuotetiivistelma, tuotekuvaus = :tuotekuvaus, kuva = :kuva WHERE id = :id");
     $query->bindValue(":tuotenimi", $tuotenimi, PDO::PARAM_STR);
     $query->bindValue(":hinta", $hinta, PDO::PARAM_STR);
+    $query->bindValue(":alennettuhinta", $alennettuhinta, PDO::PARAM_STR);
    $query->bindValue(":tuotetiivistelma", $tuotetiivistelma, PDO::PARAM_STR);
      $query->bindValue(":tuotekuvaus", $tuotekuvaus, PDO::PARAM_STR);
     $query->bindValue(":kuva", $kuva, PDO::PARAM_STR); 
