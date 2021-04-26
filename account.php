@@ -10,7 +10,7 @@ $search = filter_var($input->search, FILTER_SANITIZE_STRING);
 $sql = "
 SELECT added
 FROM login
-WHERE username = '$search'"
+WHERE email = '$search'"
 ;
 
 

@@ -17,6 +17,8 @@ $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 try {
     $db = openDb();
 
+    
+
     $sql = "INSERT INTO login (email, password, etunimi, sukunimi, osoite, postinro, kunta, puh)
     VALUES('$email', '$passwordHash', '$etunimi', '$sukunimi', '$osoite', '$postinro', '$kunta', '$puh')";
 
