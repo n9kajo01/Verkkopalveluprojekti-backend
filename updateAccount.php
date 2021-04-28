@@ -18,14 +18,14 @@ try {
     $db = openDb();
 
 
-    if ($email) {
-        $query = $db->prepare("SELECT email FROM login where email='$email'");
+    if ($email) { //tarkistaa onko sähköpostiosoite jo käytössä
+        $query = $db->prepare("SELECT email FROM login where email='$email' AND NOT userid='$userid'");
         $query->execute();
         $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
         if ($result) {
             $data = array('message' => "exists");
-        } else {
+        } else { //=> sähköposti ei ole käytössä
             $sql = "
         UPDATE login
         SET email='$email', etunimi ='$etunimi', sukunimi='$sukunimi', osoite='$osoite', postinro='$postinro', kunta='$kunta', puh='$puh'
