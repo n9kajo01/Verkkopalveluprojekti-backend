@@ -10,7 +10,7 @@ $search = filter_var($input->search, FILTER_SANITIZE_STRING);
 $sql = "
 SELECT *
 FROM tilaus
-WHERE käyttäjänimi = '$search'"
+WHERE userid = '$search'"
 ;
 
 

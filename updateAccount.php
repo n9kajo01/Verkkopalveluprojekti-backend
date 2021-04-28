@@ -17,14 +17,25 @@ $sql = "SELECT * FROM login WHERE userid =$userid";
 try {
     $db = openDb();
 
-    $sql = "
+
+    if ($email) {
+        $query = $db->prepare("SELECT email FROM login where email='$email'");
+        $query->execute();
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+
+        if ($result) {
+            $data = array('message' => "exists");
+        } else {
+            $sql = "
         UPDATE login
         SET email='$email', etunimi ='$etunimi', sukunimi='$sukunimi', osoite='$osoite', postinro='$postinro', kunta='$kunta', puh='$puh'
         WHERE userid =$userid
         ";
-    $query = $db->query($sql);
-    $query->execute();
-    $data = array('message' => "success");
+            $query = $db->query($sql);
+            $query->execute();
+            $data = array('message' => "success");
+        }
+    }
 
 
     $result = $query->fetchAll(PDO::FETCH_ASSOC);
