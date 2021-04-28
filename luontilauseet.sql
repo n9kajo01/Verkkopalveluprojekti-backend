@@ -65,7 +65,7 @@ CREATE TABLE tilaus(
     toimitustapa varchar(255),
     maksutapa varchar(255),
     hinta varchar(255),
-    käyttäjänimi varchar(255),
+    userid int(5),
     pvm timestamp
 );
 
